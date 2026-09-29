@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ClearPath accessible examination practice platform" />
+    <title>ClearPath — Accessible exam practice</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="auth-voice.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <section class="login-screen" id="login-screen" aria-labelledby="login-heading">
+      <div class="login-decoration login-decoration-one" aria-hidden="true"></div>
+      <div class="login-decoration login-decoration-two" aria-hidden="true"></div>
+      <div class="login-inner">
+        <div class="login-brand">
+          <div class="brand-mark" aria-hidden="true"><span>c</span></div>
+          <div>
+            <div class="brand-name">clearpath</div>
+            <div class="brand-caption">ACCESS FORWARD</div>
+          </div>
+        </div>
+        <main class="login-card">
+          <p class="eyebrow">CANDIDATE SIGN IN</p>
+          <h1 id="login-heading">Welcome back to ClearPath.</h1>
+          <p class="login-lede">Sign in to continue your accessible exam practice.</p>
+          <label class="login-language-picker" for="login-language">Voice language / आवाज़ की भाषा
+            <select id="login-language" aria-label="Voice language">
+              <option value="en">English</option>
+              <option value="hi">हिन्दी</option>
+            </select>
+          </label>
+          <button type="button" class="login-read-button" id="login-read-aloud">◖ Read sign-in instructions aloud</button>
+          <form id="login-form" novalidate>
+            <div class="form-field">
+              <label for="login-email">Email address</label>
+              <div class="login-input-with-voice">
+                <input id="login-email" name="email" type="email" autocomplete="username" placeholder="you@example.com" required />
+                <button type="button" class="field-voice-button" id="login-email-voice" aria-label="Enter email address by voice" aria-pressed="false">♩</button>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="login-password">Password</label>
+              <div class="password-field login-input-with-voice">
+                <input id="login-password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="4" required />
+                <button type="button" class="field-voice-button" id="login-password-voice" aria-label="Enter password by voice" aria-pressed="false">♩</button>
+                <button type="button" class="password-toggle" id="password-toggle" aria-label="Show password">Show</button>
+              </div>
+            </div>
+            <div class="login-options">
+              <label class="remember-option"><input id="remember-me" type="checkbox" /> <span>Remember me</span></label>
+              <button type="button" class="text-button" id="forgot-password">Forgot password?</button>
+            </div>
+            <button class="primary-button login-button" type="submit">Sign in <span aria-hidden="true">→</span></button>
+            <div class="login-status" id="login-status" role="alert" aria-live="assertive"></div>
+          </form>
+          <div class="login-divider"><span>or</span></div>
+          <button type="button" class="demo-login-button" id="demo-login">Try the accessible demo <span aria-hidden="true">↗</span></button>
+          <p class="login-note"><span aria-hidden="true">◉</span> Screen reader and keyboard-friendly from sign in to submission.</p>
+        </main>
+        <p class="login-footer">Need access? Call ClearPath support at <a href="tel:7805027450">7805027450</a>.</p>
+      </div>
+    </section>
+
+    <div class="app-shell" id="app-shell" hidden>
+      <aside class="sidebar" aria-label="Primary navigation">
+        <div class="brand-lockup">
+          <div class="brand-mark" aria-hidden="true"><span>c</span></div>
+          <div>
+            <div class="brand-name">clearpath</div>
+            <div class="brand-caption">ACCESS FORWARD</div>
+          </div>
+        </div>
+
+        <div class="sidebar-label">Workspace</div>
+        <nav class="main-nav">
+          <button class="nav-item is-active" type="button" data-view="dashboard" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">⌂</span><span>Dashboard</span>
+          </button>
+          <button class="nav-item" type="button" data-view="practice">
+            <span class="nav-icon" aria-hidden="true">▤</span><span>Practice library</span>
+          </button>
+          <button class="nav-item" type="button" data-view="progress">
+            <span class="nav-icon" aria-hidden="true">↗</span><span>My progress</span>
+          </button>
+          <button class="nav-item" type="button" data-view="saved">
+            <span class="nav-icon" aria-hidden="true">☆</span><span>Saved questions</span>
+            <span class="nav-count">12</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-label">Support</div>
+        <nav class="main-nav">
+          <button class="nav-item" type="button" data-view="accessibility">
+            <span class="nav-icon" aria-hidden="true">◉</span><span>Accessibility</span>
+          </button>
+          <button class="nav-item" type="button" data-view="help">
+            <span class="nav-icon" aria-hidden="true">?</span><span>Help centre</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="streak-card">
+            <div class="streak-icon" aria-hidden="true">✦</div>
+            <div>
+              <strong>7 day streak</strong>
+              <span>Keep your rhythm going</span>
+            </div>
+          </div>
+          <button class="profile-switcher" id="logout-button" type="button" aria-label="Sign out of Alex Nair">
+            <span class="avatar">AN</span>
+            <span class="profile-copy"><strong id="profile-name">Alex Nair</strong><small>Candidate · Sign out</small></span>
+            <span aria-hidden="true" class="profile-chevron">⌄</span>
+          </button>
+        </div>
+      </aside>
+
+      <main id="main-content" class="main-content">
+        <header class="topbar">
+          <div class="breadcrumb" aria-label="Breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="page-title">Dashboard</strong></div>
+          <div class="topbar-actions">
+            <button class="icon-button" type="button" id="announce-button" aria-label="Read page summary aloud" title="Read page summary aloud">◖</button>
+            <button class="icon-button has-dot" type="button" aria-label="Notifications" title="Notifications">♢</button>
+            <button class="top-avatar" type="button" aria-label="Open Alex Nair profile">AN</button>
+          </div>
+        </header>
+
+        <section class="view is-visible" id="dashboard-view" aria-labelledby="dashboard-heading">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow">MONDAY, 28 SEPTEMBER 2026</p>
+              <h1 id="dashboard-heading">Good morning, <span id="dashboard-candidate-name">Alex</span>.</h1>
+              <p class="lede">A calm place to build exam confidence, one question at a time.</p>
+            </div>
+            <button class="primary-button" type="button" data-action="open-practice">
+              <span aria-hidden="true">＋</span> Find a practice test
+            </button>
+          </div>
+
+          <div class="dashboard-grid">
+            <article class="stat-card stat-card-primary">
+              <div class="stat-card-top"><span class="stat-label">Preparation score</span><span class="trend-chip">↑ 8.4%</span></div>
+              <div class="score-row"><strong>74</strong><span>/ 100</span></div>
+              <div class="progress-track" aria-label="Preparation score 74 out of 100"><div class="progress-fill" style="width: 74%"></div></div>
+              <p>You're ahead of <strong>68%</strong> of learners this month.</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-card-top"><span class="stat-label">Questions answered</span><span class="stat-icon soft-purple" aria-hidden="true">▤</span></div>
+              <div class="score-row"><strong>248</strong><span>this month</span></div>
+              <p><strong class="text-green">+32</strong> from last month</p>
+            </article>
+            <article class="stat-card">
+              <div class="stat-card-top"><span class="stat-label">Study time</span><span class="stat-icon soft-orange" aria-hidden="true">◷</span></div>
+              <div class="score-row"><strong>12.5</strong><span>hours</span></div>
+              <p><strong class="text-orange">2.5 hrs</strong> to reach your goal</p>
+            </article>
+          </div>
+
+          <div class="content-grid">
+            <section class="panel continue-panel" aria-labelledby="continue-heading">
+              <div class="panel-heading">
+                <div><p class="section-kicker">PICK UP WHERE YOU LEFT OFF</p><h2 id="continue-heading">Continue learning</h2></div>
+                <button class="text-button" type="button" data-action="open-practice">View all <span aria-hidden="true">→</span></button>
+              </div>
+              <div class="continue-card">
+                <div class="subject-icon teal-icon" aria-hidden="true">S</div>
+                <div class="continue-copy"><span class="course-tag">SSC</span><h3>SSC practice test</h3><p>Question 2 of 3 <span class="dot-separator">•</span> 3 min left</p><div class="mini-progress"><div style="width: 33%"></div></div></div>
+                <button class="round-arrow" type="button" data-action="resume-test" data-test="ssc" aria-label="Resume SSC practice test">→</button>
+              </div>
+              <div class="continue-card muted-card">
+                <div class="subject-icon blue-icon" aria-hidden="true">R</div>
+                <div class="continue-copy"><span class="course-tag">RAILWAY</span><h3>Railway recruitment practice</h3><p>Question 1 of 3 <span class="dot-separator">•</span> 4 min left</p><div class="mini-progress"><div class="blue-progress" style="width: 20%"></div></div></div>
+                <button class="round-arrow" type="button" data-action="resume-test" data-test="railway" aria-label="Resume Railway practice test">→</button>
+              </div>
+            </section>
+
+            <section class="panel weekly-panel" aria-labelledby="weekly-heading">
+              <div class="panel-heading"><div><p class="section-kicker">YOUR ACTIVITY</p><h2 id="weekly-heading">Weekly rhythm</h2></div><button class="more-button" type="button" aria-label="More activity options">•••</button></div>
+              <div class="chart-wrap">
+                <div class="chart-y-axis" aria-hidden="true"><span>60</span><span>40</span><span>20</span><span>0</span></div>
+                <div class="bar-chart" role="img" aria-label="Study hours this week: Monday 1.2, Tuesday 2.1, Wednesday 1.8, Thursday 3.1, Friday 2.4, Saturday 1.6, Sunday 0.8">
+                  <div class="grid-line line-top"></div><div class="grid-line line-mid"></div><div class="grid-line line-bottom"></div>
+                  <div class="bar-day"><div class="bar" style="height: 32%"></div><span>M</span></div><div class="bar-day"><div class="bar" style="height: 58%"></div><span>T</span></div><div class="bar-day"><div class="bar" style="height: 47%"></div><span>W</span></div><div class="bar-day"><div class="bar active" style="height: 82%"></div><span class="today">T</span></div><div class="bar-day"><div class="bar" style="height: 64%"></div><span>F</span></div><div class="bar-day"><div class="bar" style="height: 43%"></div><span>S</span></div><div class="bar-day"><div class="bar" style="height: 21%"></div><span>S</span></div>
+                </div>
+              </div>
+              <div class="chart-summary"><strong>12.5 hrs</strong><span>of 15 hour weekly goal</span><span class="summary-badge">83%</span></div>
+            </section>
+          </div>
+
+          <section class="panel recommended-panel" aria-labelledby="recommended-heading">
+            <div class="panel-heading"><div><p class="section-kicker">CURATED FOR YOUR GOALS</p><h2 id="recommended-heading">Recommended practice</h2></div><button class="text-button" type="button" data-action="open-practice">Explore library <span aria-hidden="true">→</span></button></div>
+            <div class="recommend-grid">
+              <article class="recommend-card">
+                <div class="recommend-illustration violet-illustration" aria-hidden="true"><span>R</span><i></i><b></b></div><div class="recommend-copy"><span class="difficulty medium">MEDIUM</span><h3>Logical reasoning essentials</h3><p>3 questions <span>•</span> English + Hindi</p><button class="outline-button" type="button" data-action="start-test" data-test="logical">Start practice</button></div>
+              </article>
+              <article class="recommend-card">
+                <div class="recommend-illustration peach-illustration" aria-hidden="true"><span>B</span><i></i><b></b></div><div class="recommend-copy"><span class="difficulty easy">EASY</span><h3>Banking exam fundamentals</h3><p>3 questions <span>•</span> English + Hindi</p><button class="outline-button" type="button" data-action="start-test" data-test="banking">Start practice</button></div>
+              </article>
+              <article class="recommend-card">
+                <div class="recommend-illustration green-illustration" aria-hidden="true"><span>S</span><i></i><b></b></div><div class="recommend-copy"><span class="difficulty hard">CHALLENGING</span><h3>SSC practice test</h3><p>3 questions <span>•</span> English + Hindi</p><button class="outline-button" type="button" data-action="start-test" data-test="ssc">Start practice</button></div>
+              </article>
+            </div>
+          </section>
+        </section>
+
+        <section class="view" id="practice-view" aria-labelledby="practice-heading">
+          <div class="page-intro"><div><p class="eyebrow">PRACTICE LIBRARY</p><h1 id="practice-heading">Build your confidence</h1><p class="lede">Choose a focused practice set or simulate the real exam.</p></div><button class="secondary-button" type="button" data-view-target="accessibility">◉ Adjust accessibility</button></div>
+          <div class="filter-row" role="toolbar" aria-label="Practice filters"><button class="filter-pill selected" type="button">All tests</button><button class="filter-pill" type="button">SSC</button><button class="filter-pill" type="button">Railway</button><button class="filter-pill" type="button">Banking</button><button class="filter-pill" type="button">Logical reasoning</button></div>
+          <div class="library-list">
+            <article class="library-card"><div class="library-icon teal-icon" aria-hidden="true">S</div><div class="library-main"><div class="card-topline"><span class="course-tag">STAFF SELECTION COMMISSION</span><span class="difficulty medium">MEDIUM</span></div><h2>SSC practice test</h2><p>Practice general awareness, aptitude, and common competitive-exam patterns.</p><div class="library-meta"><span>3 questions</span><span>5 minutes</span><span>English + Hindi</span></div></div><button class="primary-button compact" type="button" data-action="start-test" data-test="ssc">Start test <span aria-hidden="true">→</span></button></article>
+            <article class="library-card"><div class="library-icon purple-icon" aria-hidden="true">R</div><div class="library-main"><div class="card-topline"><span class="course-tag">RAILWAY RECRUITMENT</span><span class="difficulty hard">CHALLENGING</span></div><h2>Railway recruitment practice</h2><p>Build speed with arithmetic, number series, and work-rate questions.</p><div class="library-meta"><span>3 questions</span><span>5 minutes</span><span>English + Hindi</span></div></div><button class="primary-button compact" type="button" data-action="start-test" data-test="railway">Start test <span aria-hidden="true">→</span></button></article>
+            <article class="library-card"><div class="library-icon orange-icon" aria-hidden="true">B</div><div class="library-main"><div class="card-topline"><span class="course-tag">BANKING AWARENESS</span><span class="difficulty easy">EASY</span></div><h2>Banking exam fundamentals</h2><p>Review interest, averages, and foundational banking awareness.</p><div class="library-meta"><span>3 questions</span><span>5 minutes</span><span>English + Hindi</span></div></div><button class="primary-button compact" type="button" data-action="start-test" data-test="banking">Start test <span aria-hidden="true">→</span></button></article>
+            <article class="library-card"><div class="library-icon green-icon" aria-hidden="true">◇</div><div class="library-main"><div class="card-topline"><span class="course-tag">LOGICAL REASONING</span><span class="difficulty hard">CHALLENGING</span></div><h2>Logical reasoning essentials</h2><p>Strengthen sequences, classification, and accessible deduction questions.</p><div class="library-meta"><span>3 questions</span><span>5 minutes</span><span>English + Hindi</span></div></div><button class="primary-button compact" type="button" data-action="start-test" data-test="logical">Start test <span aria-hidden="true">→</span></button></article>
+          </div>
+        </section>
+
+        <section class="view" id="progress-view" aria-labelledby="progress-heading">
+          <div class="page-intro"><div><p class="eyebrow">MY PROGRESS</p><h1 id="progress-heading">Your progress, clearly seen</h1><p class="lede">Small consistent steps are adding up.</p></div><div class="progress-period">Last 30 days <span aria-hidden="true">⌄</span></div></div>
+          <div class="progress-overview"><article class="progress-big-card"><span class="stat-label">OVERALL ACCURACY</span><strong>78.4%</strong><p>+6.2% from your previous period</p><div class="sparkline" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span class="current"></span></div></article><article class="progress-big-card"><span class="stat-label">QUESTIONS MASTERED</span><strong>186</strong><p>Across 4 subjects</p><div class="subject-dots"><i></i><i></i><i></i><i></i></div></article><article class="progress-big-card"><span class="stat-label">CURRENT STREAK</span><strong>7 days</strong><p>Your longest streak is 12 days</p><div class="streak-dots"><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="filled"></i><i class="today-dot"></i></div></article></div>
+          <section class="latest-result" id="latest-result" hidden aria-labelledby="latest-result-heading"><div class="result-icon" aria-hidden="true">✓</div><div class="result-copy"><p class="section-kicker">LATEST TEST RESULT</p><h2 id="latest-result-heading"><span id="result-test-name">SSC</span> complete</h2><p id="result-detail">You answered 0 of 3 correctly.</p></div><div class="result-score"><strong id="result-accuracy">0%</strong><span>accuracy</span></div><button class="text-button" type="button" id="read-result">Read result aloud <span aria-hidden="true">↗</span></button></section>
+          <section class="panel subject-progress-panel"><div class="panel-heading"><div><p class="section-kicker">SUBJECT BREAKDOWN</p><h2>Where to focus next</h2></div></div><div class="subject-row"><span class="subject-name"><i class="subject-dot teal"></i>SSC</span><div class="subject-track"><div style="width:82%"></div></div><strong>82%</strong><span class="focus-tag">Strong</span></div><div class="subject-row"><span class="subject-name"><i class="subject-dot purple"></i>Railway</span><div class="subject-track"><div style="width:68%" class="purple-fill"></div></div><strong>68%</strong><span class="focus-tag needs-focus">Focus here</span></div><div class="subject-row"><span class="subject-name"><i class="subject-dot orange"></i>Banking</span><div class="subject-track"><div style="width:84%" class="orange-fill"></div></div><strong>84%</strong><span class="focus-tag">Strong</span></div><div class="subject-row"><span class="subject-name"><i class="subject-dot teal"></i>Logical reasoning</span><div class="subject-track"><div style="width:76%"></div></div><strong>76%</strong><span class="focus-tag">Strong</span></div></section>
+        </section>
+
+        <section class="view" id="saved-view" aria-labelledby="saved-heading">
+          <div class="page-intro"><div><p class="eyebrow">SAVED QUESTIONS</p><h1 id="saved-heading">Return to the tricky ones</h1><p class="lede">Review questions you marked for another look.</p></div></div>
+          <section class="panel saved-panel"><div class="empty-or-list"><div class="saved-question"><div class="saved-number">Q12</div><div><span class="course-tag">LOGICAL REASONING</span><h2>Number series and missing terms</h2><p>Saved 2 days ago <span>•</span> Not attempted</p></div><button class="outline-button" type="button" data-action="start-test" data-test="logical">Practice now</button></div><div class="saved-question"><div class="saved-number">Q07</div><div><span class="course-tag">BANKING</span><h2>Simple interest fundamentals</h2><p>Saved 5 days ago <span>•</span> Answered once</p></div><button class="outline-button" type="button" data-action="start-test" data-test="banking">Review answer</button></div></div></section>
+        </section>
+
+        <section class="view" id="accessibility-view" aria-labelledby="accessibility-heading">
+          <div class="page-intro"><div><p class="eyebrow">ACCESSIBILITY</p><h1 id="accessibility-heading">Make ClearPath work for you</h1><p class="lede">These preferences are saved on this device and apply across your workspace.</p></div><div class="accessibility-status" role="status"><span class="status-dot"></span> Your preferences are active</div></div>
+          <div class="settings-grid">
+            <section class="panel settings-panel"><div class="panel-heading"><div><p class="section-kicker">APPEARANCE</p><h2>Comfort &amp; clarity</h2></div></div><div class="setting-row"><div><h3>High contrast mode</h3><p>Increase the contrast of text, controls, and borders.</p></div><label class="switch"><input id="contrast-toggle" type="checkbox" /><span class="switch-slider"></span><span class="sr-only">Toggle high contrast mode</span></label></div><div class="setting-row"><div><h3>Dark theme</h3><p>Use a darker surface to reduce glare in low light.</p></div><label class="switch"><input id="dark-toggle" type="checkbox" /><span class="switch-slider"></span><span class="sr-only">Toggle dark theme</span></label></div><div class="setting-row stacked"><div><h3>Text size</h3><p>Choose a reading size that feels comfortable.</p></div><div class="text-size-control" role="group" aria-label="Text size"><button type="button" data-text-size="small">A</button><button type="button" class="selected" data-text-size="default">A</button><button type="button" data-text-size="large">A</button><button type="button" data-text-size="xlarge">A</button></div></div></section>
+            <section class="panel settings-panel"><div class="panel-heading"><div><p class="section-kicker">ASSISTIVE SUPPORT</p><h2>Exam feedback</h2></div></div><div class="setting-row"><div><h3>Read questions aloud</h3><p>Use your device's speech support to read the current question.</p></div><label class="switch"><input id="speech-toggle" type="checkbox" checked /><span class="switch-slider"></span><span class="sr-only">Toggle read questions aloud</span></label></div><div class="setting-row"><div><h3>Audio feedback</h3><p>Hear a confirmation when you select an answer.</p></div><label class="switch"><input id="audio-toggle" type="checkbox" checked /><span class="switch-slider"></span><span class="sr-only">Toggle audio feedback</span></label></div><div class="setting-row"><div><h3>Reduce motion</h3><p>Minimize transitions and animated effects.</p></div><label class="switch"><input id="motion-toggle" type="checkbox" /><span class="switch-slider"></span><span class="sr-only">Toggle reduced motion</span></label></div></section>
+          </div>
+          <div class="accessibility-note"><span aria-hidden="true">◉</span><div><strong>Designed for independent use</strong><p>ClearPath supports screen readers, keyboard-only navigation, visible focus states, and semantic headings throughout every practice test.</p></div><button class="text-button" type="button" id="read-support">Read this aloud <span aria-hidden="true">↗</span></button></div>
+        </section>
+
+        <section class="view" id="help-view" aria-labelledby="help-heading">
+          <div class="page-intro"><div><p class="eyebrow">HELP CENTRE</p><h1 id="help-heading">How can we help?</h1><p class="lede">Quick answers for making your practice time work better.</p></div></div>
+          <div class="help-grid"><article class="help-card"><span aria-hidden="true">⌨</span><h2>Keyboard shortcuts</h2><p>Use Tab to move between answers, then Space or Enter to select. The next question opens automatically.</p></article><article class="help-card"><span aria-hidden="true">◉</span><h2>Screen reader support</h2><p>Every question, option, timer, and progress state has an accessible name and live announcement.</p></article><article class="help-card"><span aria-hidden="true">?</span><h2>Still need help?</h2><p>Call ClearPath support at <a class="support-link" href="tel:7805027450">7805027450</a>, Monday–Friday, 9:00–18:00 IST.</p><button class="outline-button" type="button">Contact support</button></article></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="test-modal" hidden>
+      <section class="test-modal" role="dialog" aria-modal="true" aria-labelledby="test-title">
+         <div class="test-topbar"><div class="test-brand"><div class="brand-mark small" aria-hidden="true"><span>c</span></div><strong>clearpath</strong></div><div class="test-meta"><span id="question-count">Question 1 of 3</span><label class="language-picker" for="test-language">Language <select id="test-language" aria-label="Question language"><option value="en">English</option><option value="hi">हिन्दी</option></select></label><span class="timer" role="timer" aria-label="Time remaining"><span aria-hidden="true">◷</span> <strong id="timer-value">05:00</strong></span><button class="icon-button close-test" type="button" aria-label="Close test">×</button></div></div>
+        <div class="test-progress"><div id="test-progress-fill" style="width:20%"></div></div>
+        <div class="test-body"><div class="test-kicker"><span id="test-subject">SSC COMPETITIVE EXAM</span><button class="save-question" type="button" id="save-question" aria-pressed="false">☆ <span>Save question</span></button></div><h1 id="test-title" tabindex="-1" aria-live="polite">If 20% of a number is 50, what is the number?</h1><p class="question-instruction" id="question-instruction">Use Tab to move between answers. Press Space or Enter to select; the next question opens automatically.</p><p class="question-instruction" id="answer-progress" role="status" aria-live="polite"></p><fieldset class="answer-options" id="answer-options"><legend class="sr-only">Answer options</legend></fieldset><div class="test-footer"><div class="assistive-actions"><button class="secondary-button" type="button" id="read-question">◖ Read question aloud</button><button class="voice-button" type="button" id="voice-answer" aria-pressed="false"><span aria-hidden="true">♩</span> Answer by voice</button><span class="voice-status" id="voice-status" role="status" aria-live="polite"></span></div><div><button class="text-button" type="button" id="clear-answer">Clear selection</button><button class="primary-button" type="button" id="next-question">Next question <span aria-hidden="true">→</span></button></div></div></div>
+      </section>
+    </div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
